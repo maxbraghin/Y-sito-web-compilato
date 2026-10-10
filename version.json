@@ -1,5 +1,6 @@
 {
   "source_repository": "maxbraghin/Y-sito-web",
-  "source_commit": "f191dee2b974d091ef1f1fcde02821ce98ad64b0",
-  "format": "static-vinext-export"
+  "source_commit": "d6f27c74cdc481576ea7154e634d40d3c98f7f32",
+  "format": "static-vinext-export",
+  "base_path": "/Y-sito-web-compilato"
 }
