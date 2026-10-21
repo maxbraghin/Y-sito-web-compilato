@@ -1,0 +1,4 @@
+Serenissima: Flag of Most Serene Republic of Venice, F l a n k e r, public domain.
+https://commons.wikimedia.org/wiki/File:Flag_of_Most_Serene_Republic_of_Venice.svg
+Earth texture: three.js examples, earth_atmos_2048.jpg.
+https://threejs.org/examples/textures/planets/earth_atmos_2048.jpg
