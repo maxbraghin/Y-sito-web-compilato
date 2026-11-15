@@ -40,10 +40,20 @@ function paintPlanet(){
  const ca=Math.cos(angle),sa=Math.sin(angle),out=framePixels.data;
  for(const [i,x,y,z] of surface){
   const tx=x*ca-z*sa,tz=x*sa+z*ca;
-  let r=22,g=158,b=209;
-  if(tz>0){const u=Math.max(0,Math.min(291,Math.floor((tx+1)*145.5))),v=Math.max(0,Math.min(291,Math.floor((y+1)*145.5))),j=4*(v*292+u);r=texture[j];g=texture[j+1];b=texture[j+2];}
-  const light=.55+.45*Math.max(0,(-.28*x-.32*y+.9*z)),shine=38*Math.pow(Math.max(0,-.3*x-.4*y+.86*z),28);
-  out[i]=Math.min(255,r*light+shine);out[i+1]=Math.min(255,g*light+shine);out[i+2]=Math.min(255,b*light+shine);out[i+3]=255;
+  const u=Math.floor((tx+1)*145.5),v=Math.floor((y+1)*145.5);
+  let ink=0;
+  // Extract the black Y from the photograph. The blue material and lighting cover the whole globe.
+  if(tz>0&&u>=75&&u<=225&&v>=48&&v<=236){
+   const j=4*(v*292+u),blue=texture[j+2];
+   ink=Math.max(0,Math.min(1,(83-blue)/52));
+  }
+  const diffuse=Math.max(0,-.24*x-.65*y+.72*z);
+  const light=.36+.64*diffuse;
+  const shine=42*Math.pow(Math.max(0,-.3*x-.4*y+.86*z),24);
+  out[i]=(43*(1-ink)+3*ink)*light+shine*(1-.85*ink);
+  out[i+1]=(177*(1-ink)+15*ink)*light+shine*(1-.85*ink);
+  out[i+2]=(231*(1-ink)+23*ink)*light+shine*(1-.85*ink);
+  out[i+3]=255;
  }
  pc.putImageData(framePixels,0,0);
 }
