@@ -16,7 +16,7 @@
 
 .y-globe{position:absolute;left:41.1483%;top:28.0553%;width:17.4641%;aspect-ratio:1;border-radius:50%;overflow:hidden;perspective:650px;background:radial-gradient(circle at 35% 25%,#a8efff,#26bdec 35%,#03658e 75%,#012e46);box-shadow:inset -8px -4px 18px #01263e88}
 .y-rotor{position:absolute;inset:0;transform-style:preserve-3d;animation:y-turn 10s linear infinite}
-.y-face{position:absolute;inset:0;border-radius:50%;backface-visibility:hidden;background-image:url('identity-y-sans-20261019.webp');background-size:572.603% 322.26%;background-position:49.855% 40.678%}
+.y-face{position:absolute;inset:0;border-radius:50%;backface-visibility:hidden;background-image:url('y-sigil-official.webp');background-size:cover;background-position:center}
 .y-back{transform:rotateY(180deg);background:radial-gradient(circle at 35% 25%,#a8efff,#26bdec 35%,#03658e 75%,#012e46)}
 .y-gloss{position:absolute;inset:0;border-radius:50%;box-shadow:inset 0 0 5px #bafaff,inset -8px -4px 16px #002c4844;pointer-events:none}
 @keyframes y-turn{from{transform:rotateY(0deg)}to{transform:rotateY(360deg)}}
@@ -50,9 +50,9 @@ function paintPlanet(){
   const diffuse=Math.max(0,-.24*x-.65*y+.72*z);
   const light=.36+.64*diffuse;
   const shine=42*Math.pow(Math.max(0,-.3*x-.4*y+.86*z),24);
-  out[i]=(43*(1-ink)+3*ink)*light+shine*(1-.85*ink);
-  out[i+1]=(177*(1-ink)+15*ink)*light+shine*(1-.85*ink);
-  out[i+2]=(231*(1-ink)+23*ink)*light+shine*(1-.85*ink);
+  out[i]=(43*light+shine)*(1-ink)+255*ink;
+  out[i+1]=(177*light+shine)*(1-ink)+255*ink;
+  out[i+2]=(231*light+shine)*(1-ink)+255*ink;
   out[i+3]=255;
  }
  pc.putImageData(framePixels,0,0);
