@@ -1,5 +1,6 @@
 {
   "source_repository": "maxbraghin/Y-sito-web",
-  "source_commit": "0aafcc4d3909fb24a885b9f670054ee5d363fe0d",
-  "format": "static-vinext-export"
+  "source_commit": "b9dd9877793894e7e5b6fae5deb8af690df42bc4",
+  "format": "static-vinext-export",
+  "note": "Consent-aware analytics added to existing verified HTML; visual assets unchanged"
 }
